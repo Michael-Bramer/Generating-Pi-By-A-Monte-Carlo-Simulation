@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
+using System.IO;
+using System.Text;
+using System.Globalization;
+using UnityEngine.SceneManagement;
 
 public class SimulationManager : MonoBehaviour
 {
@@ -44,6 +48,18 @@ public class SimulationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Public Simulation Control Variables
+        SimulationPaused = false;
+        SimulationReset  = false;
+        SimulationSave   = false;
+
+        //Public Simulation Input Parameter Variables
+        Radius = 5.0f;
+
+        //Private Simulation Calculation Variables
+        Total_N = 0;
+        Interior_N = 0;
+        Estimate = 0;
         SimulationPaused = true;
         Boundaries.points.Clear();
         for(int i = 0; i < 101; i++)
@@ -60,30 +76,22 @@ public class SimulationManager : MonoBehaviour
         {
             if( SimulationSave)
             {
+                if(SimulationTrace.Count > 0)
+                {
+                    GenerateFile();
+                }       
                 SimulationSave = false;
             }
             if( SimulationReset)
             {
-                //Reset Numbers
-                Total_N    = 0;
-                Interior_N = 0;
-                Estimate   = 0;
-
-                //Reset the Trace Log
-                SimulationTrace.Clear();
-
-                //Set the Description Labels
-                TotalNumberOfPoints.text = Total_N.ToString();
-                NumberOfInteriorPoints.text = Interior_N.ToString();
-                EstimationOfPi.text = Estimate.ToString();
-
-                SimulationReset = false;
+                Scene scene = SceneManager.GetActiveScene(); 
+                SceneManager.LoadScene(scene.name);
             }     
         }
         else{
-            
+
             //Generate the Uniform Random Number
-            for(int i = 0; i < UpdateInterval; i++)
+            for (int i = 0; i < UpdateInterval; i++)
             {
                 double RandomX = UnityEngine.Random.Range(0.0f, Radius);
                 double RandomY = UnityEngine.Random.Range(0.0f, Radius);
@@ -147,5 +155,29 @@ public class SimulationManager : MonoBehaviour
     public void SaveSimulation()
     {
         SimulationSave = true;
+    }
+    public void GenerateFile()
+    {
+
+        string path = @"Assets\OutputFiles\Monte Carlo Simulation for "+ DateTime.Now.ToString("yyyymmddhhmmss") + @".txt";
+        try
+        {
+            // Create the file, or overwrite if the file exists.
+            using (FileStream fs = File.Create(path))
+            {
+                for(int i = 0; i < SimulationTrace.Count; i++)
+                {
+                    byte[] info = new UTF8Encoding(true).GetBytes(SimulationTrace[i].TotalCount.ToString() + "," + SimulationTrace[i].EstimatedPi.ToString() 
+                    + "," + SimulationTrace[i].GeneratedX.ToString() + "," + SimulationTrace[i].GeneratedY.ToString() + "\n");
+                    // Add some information to the file.
+                    fs.Write(info, 0, info.Length);
+                }
+                SimulationTrace.Clear();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
     }
 }
