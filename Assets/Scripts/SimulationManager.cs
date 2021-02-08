@@ -21,8 +21,9 @@ public class SimulationManager : MonoBehaviour
     public Text TotalNumberOfPoints;
     public Text NumberOfInteriorPoints;
     public Text EstimationOfPi;
-    public  int UpdateInterval = 5;
+    public  int UpdateInterval = 1;
     public UILineRenderer Boundaries;
+
 
     //Public Simulation Control Variables
     public static bool SimulationPaused = false;
@@ -86,25 +87,43 @@ public class SimulationManager : MonoBehaviour
             {
                 double RandomX = UnityEngine.Random.Range(0.0f, Radius);
                 double RandomY = UnityEngine.Random.Range(0.0f, Radius);
+                Color PointColor = Color.white;
 
                 //Calculate the Result
                 if (Math.Sqrt((RandomX * RandomX) + (RandomY * RandomY)) <= Radius)
                 {
                     Interior_N += 1;
+                    PointColor = Color.blue;   
                 }
+                else
+                {
+                    PointColor = Color.green;
+                }
+                PointColor.a = 0.4f;
                 Total_N += 1;
            
             
-            Estimate = 4*((float)Interior_N / Total_N);
+                Estimate = 4*((float)Interior_N / Total_N);
 
-            //Generate the Interval Record for the Runtime Trace
-            RuntimeData TraceLineItem;
-            TraceLineItem.GeneratedX    = RandomX;
-            TraceLineItem.GeneratedY    = RandomY;
-            TraceLineItem.EstimatedPi   = Estimate;
-            TraceLineItem.InteriorCount = Interior_N;
-            TraceLineItem.TotalCount    = Total_N;
-            SimulationTrace.Add(TraceLineItem);
+                //Generate the Interval Record for the Runtime Trace
+                RuntimeData TraceLineItem;
+                TraceLineItem.GeneratedX    = RandomX;
+                TraceLineItem.GeneratedY    = RandomY;
+                TraceLineItem.EstimatedPi   = Estimate;
+                TraceLineItem.InteriorCount = Interior_N;
+                TraceLineItem.TotalCount    = Total_N;
+                SimulationTrace.Add(TraceLineItem);
+
+                //Generate Visual
+                UILineRenderer Point = UILineRenderer.Instantiate(Boundaries);
+                Point.rectTransform.SetParent(Boundaries.rectTransform.parent);
+                Point.rectTransform.anchoredPosition = Boundaries.rectTransform.anchoredPosition;
+                Point.rectTransform.localScale = new Vector3(1f, 1f, 1f);
+                Point.rectTransform.localPosition = new Vector3(Point.rectTransform.localPosition.x, Point.rectTransform.localPosition.y, 0f);
+                Point.points.Clear();
+                Point.color = PointColor;
+                Point.points.Add(new Vector2((float)RandomX - 0.05f,(float)RandomY - 0.05f));
+                Point.points.Add(new Vector2((float)RandomX + 0.05f, (float)RandomY + 0.05f));
             }
 
             //Set the Description Labels
