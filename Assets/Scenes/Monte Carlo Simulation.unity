@@ -401,7 +401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 16.99999}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &226235545
@@ -411,20 +411,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226235543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -618,7 +618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 147.00003, y: 327}
+  m_AnchoredPosition: {x: 170, y: 327}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &387993391
@@ -829,7 +829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.9999695, y: 416.4}
+  m_AnchoredPosition: {x: 10.999992, y: 416.4}
   m_SizeDelta: {x: 393, y: 28.720093}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561375425
@@ -1119,7 +1119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -168, y: -376}
+  m_AnchoredPosition: {x: -173.99997, y: -342}
   m_SizeDelta: {x: 356.037, y: 49.488045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &708055868
@@ -1200,7 +1200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.00003, y: 327}
+  m_AnchoredPosition: {x: 60.999992, y: 327}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &831250518
@@ -1330,7 +1330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 227.23001, y: -376}
+  m_AnchoredPosition: {x: 221.23004, y: -342}
   m_SizeDelta: {x: 379.53967, y: 49.488045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &936565460
@@ -1587,8 +1587,8 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  gridSize: {x: 75, y: 75}
-  thickness: 0.5
+  gridSize: {x: 10, y: 10}
+  thickness: 3
 --- !u!222 &997769964
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1633,7 +1633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -64, y: 327}
+  m_AnchoredPosition: {x: -41, y: 327}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1028670355
@@ -1763,7 +1763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 227.23013, y: -451.7}
+  m_AnchoredPosition: {x: 221.23016, y: -417.7}
   m_SizeDelta: {x: 379.5395, y: 49.488045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1074574739
@@ -1842,7 +1842,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 227.23001, y: -299}
+  m_AnchoredPosition: {x: 221.23004, y: -265}
   m_SizeDelta: {x: 379.53967, y: 49.488045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1156692525
@@ -2000,7 +2000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -168, y: -299}
+  m_AnchoredPosition: {x: -174, y: -265}
   m_SizeDelta: {x: 356.03857, y: 49.488045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1608757621
@@ -2079,7 +2079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -168.02002, y: -451.7}
+  m_AnchoredPosition: {x: -174.01999, y: -417.7}
   m_SizeDelta: {x: 356.07397, y: 49.488045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1720357442
@@ -2235,7 +2235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170.99997, y: 327}
+  m_AnchoredPosition: {x: -148, y: 327}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1889950170
@@ -2409,8 +2409,8 @@ GameObject:
   - component: {fileID: 2066418729}
   - component: {fileID: 2066418728}
   - component: {fileID: 2066418727}
-  m_Layer: 5
-  m_Name: Image
+  m_Layer: 8
+  m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2430,11 +2430,11 @@ RectTransform:
   m_Father: {fileID: 997769962}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076294, y: 0.0000076294}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.0001664497, y: -0.00027372688}
   m_SizeDelta: {x: 500, y: 500}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.0000000055879354, y: 0.0000000037252903}
 --- !u!114 &2066418727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2448,11 +2448,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03773582, g: 0.036845826, b: 0.036845826, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  gridSize: {x: 0, y: 0}
-  points: []
+  gridSize: {x: 100, y: 100}
+  points:
+  - {x: 0, y: 75}
+  - {x: 10, y: 10}
+  - {x: 20, y: 20}
+  - {x: 30, y: 30}
+  - {x: 40, y: 40}
+  - {x: 50, y: 50}
+  - {x: 60, y: 60}
+  - {x: 70, y: 70}
+  - {x: 75, y: 75}
+  - {x: 75, y: 0}
   thickness: 10
 --- !u!114 &2066418728
 MonoBehaviour:
