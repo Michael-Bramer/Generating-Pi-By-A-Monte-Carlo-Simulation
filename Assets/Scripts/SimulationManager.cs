@@ -22,6 +22,7 @@ public class SimulationManager : MonoBehaviour
     public Text NumberOfInteriorPoints;
     public Text EstimationOfPi;
     public  int UpdateInterval = 5;
+    public UILineRenderer Boundaries;
 
     //Public Simulation Control Variables
     public static bool SimulationPaused = false;
@@ -43,6 +44,12 @@ public class SimulationManager : MonoBehaviour
     void Start()
     {
         SimulationPaused = true;
+        Boundaries.points.Clear();
+        for(int i = 0; i < 101; i++)
+        {
+
+            Boundaries.points.Add(new Vector2((i*Radius/100),(Mathf.Sqrt((Radius*Radius)-((i * Radius / 100)* (i * Radius / 100))))));
+        }
     }
 
     // Update is called once per frame

@@ -7,7 +7,7 @@ public class UILineRenderer : Graphic
 {
 
     public Vector2Int gridSize;
-
+    public UIGridRenderer grid;
     public List<Vector2> points;
 
     float width;
@@ -32,11 +32,18 @@ public class UILineRenderer : Graphic
             return;
         }
 
+        float angle = 0;
+
         for(int i=0; i<points.Count; i++)
         {
             Vector2 point = points[i];
 
-            DrawVerticesForPoint(point, vh);
+            if(i<points.Count - 1)
+            {
+                angle = GetAngle(points[i], points[i + 1]) + 45f;
+            }
+
+            DrawVerticesForPoint(point, vh, angle);
         }
 
         for(int i=0; i<points.Count-1; i++){
@@ -46,17 +53,34 @@ public class UILineRenderer : Graphic
         }
     }
 
-    void DrawVerticesForPoint(Vector2 point, VertexHelper vh)
+    public float GetAngle(Vector2 me, Vector2 target)
+    {
+        return (float)(Mathf.Atan2(target.y - me.y, target.x - me.x) * (180 / Mathf.PI));
+    }
+
+    void DrawVerticesForPoint(Vector2 point, VertexHelper vh, float angle)
     {
         UIVertex vertex = UIVertex.simpleVert;
         vertex.color = color;
 
-        vertex.position = new Vector3(-thickness / 2, 0);
+        vertex.position = Quaternion.Euler(0,0,angle)*new Vector3(-thickness / 2, 0);
         vertex.position += new Vector3(unitWidth * point.x, unitHeight * point.y);
         vh.AddVert(vertex);
 
-        vertex.position = new Vector3(thickness / 2, 0);
+        vertex.position = Quaternion.Euler(0, 0, angle) * new Vector3(thickness / 2, 0);
         vertex.position += new Vector3(unitWidth * point.x, unitHeight * point.y);
         vh.AddVert(vertex);
+    }
+
+    private void Update()
+    {
+        if(grid != null)
+        {
+            if(gridSize != grid.gridSize)
+            {
+                gridSize = grid.gridSize;
+                SetVerticesDirty();
+            }
+        }
     }
 }
